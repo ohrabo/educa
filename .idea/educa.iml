@@ -19,7 +19,13 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../educa\templates" />
+        <option value="$MODULE_DIR$/templates" />
+        <option value="$MODULE_DIR$/courses/templates" />
+        <option value="$MODULE_DIR$/courses/templates/registration" />
+        <option value="$MODULE_DIR$/courses/templates/courses" />
+        <option value="$MODULE_DIR$/courses/templates/courses/manage" />
+        <option value="$MODULE_DIR$/courses/templates/courses/manage/course" />
+        <option value="$MODULE_DIR$/courses/templates/courses/manage/course/courses/manage/course" />
       </list>
     </option>
   </component>
