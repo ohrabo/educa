@@ -41,7 +41,7 @@ class OwnerCourseMixin(OwnerMixin, LoginRequiredMixin):
 
 class OwnerCourseEditMixin(OwnerCourseMixin):
     fields = ['subject', 'title', 'slug', 'overview']
-    success_url = reverse_lazy('manage_course_list')
+    # success_url = reverse_lazy('manage_course_list')
     template_name = 'courses/manage/course/form.html'
 
 
@@ -52,8 +52,8 @@ class ManageCourseListView(OwnerCourseMixin, ListView):
     #     qs = super(ManageCourseListView, self).get_queryset()
     #     return qs.filter(owner=self.request.user)
 
-class CourseCreateView(PermissionRequiredMixin, OwnerCourseEditMixin, CreateView):
-    # template_name = 'courses/manage/course/form.html'
+class CourseCreateView(OwnerCourseEditMixin, OwnerEditMixin, CreateView, PermissionRequiredMixin):
+    template_name = 'courses/manage/course/form.html'
     permission_required = 'courses.can_add'
 
 class CourseUpdateView(PermissionRequiredMixin, OwnerCourseEditMixin, UpdateView):
@@ -65,25 +65,25 @@ class CourseDeleteView(PermissionRequiredMixin, OwnerCourseMixin, DeleteView):
     success_url = reverse_lazy('manage_course_list')
     permission_required = 'courses.delete_course'
 
-# class CourseModuleUpdateView(TemplateResponseMixin, View):
-#     template_name = 'courses/manage/module/formset.html'
-#     course = None
-#     def get_formset(self, data=None):
-#         return ModuleFormSet(instance=self.course,data=data)
-#
-#     def dispatch(self, request, pk):
-#         self.course = get_object_or_404(Course,id=pk, owner=request.user)
-#         return super(CourseModuleUpdateView, self).dispatch(request, pk)
-#
-#     def get(self, request, *args, **kwargs):
-#         formset = self.get_formset()
-#         return self.render_to_response({'course': self.course,
-#                                     'formset': formset})
-#
-#     def post(self, request, *args, **kwargs):
-#         formset = self.get_formset(data=request.POST)
-#         if formset.is_valid():
-#             formset.save()
-#             return redirect('manage_course_list')
-#         return self.render_to_response({'course': self.course,
-#                                     'formset': formset})
+class CourseModuleUpdateView(TemplateResponseMixin, View):
+    template_name = 'courses/manage/module/formset.html'
+    course = None
+    def get_formset(self, data=None):
+        return ModuleFormSet(instance=self.course,data=data)
+
+    def dispatch(self, request, pk):
+        self.course = get_object_or_404(Course,id=pk, owner=request.user)
+        return super(CourseModuleUpdateView, self).dispatch(request, pk)
+
+    def get(self, request, *args, **kwargs):
+        formset = self.get_formset()
+        return self.render_to_response({'course': self.course,
+                                    'formset': formset})
+
+    def post(self, request, *args, **kwargs):
+        formset = self.get_formset(data=request.POST)
+        if formset.is_valid():
+            formset.save()
+            return redirect('manage_course_list')
+        return self.render_to_response({'course': self.course,
+                                    'formset': formset})
