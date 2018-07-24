@@ -17,11 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 from django.contrib.auth import views as auth_views
+from courses.views import CourseListView
 
 urlpatterns = [
 path('accounts/login/', auth_views.login, name='login'),
 path('accounts/logout/', auth_views.logout, name='logout'),
 path('admin/', admin.site.urls),
 path('course/', include('courses.urls')),
+path('', CourseListView.as_view(), name='course_list'),
+path('students/', include('students.urls')),
 ]
 
