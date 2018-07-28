@@ -1,0 +1,96 @@
+var markers = [
+{
+  "model": "map.category",
+  "pk": 1,
+  "fields": {
+    "name": "Document",
+    "slug": "document"
+  }
+},
+{
+  "model": "map.category",
+  "pk": 2,
+  "fields": {
+    "name": "Event",
+    "slug": "event"
+  }
+},
+{
+  "model": "map.category",
+  "pk": 3,
+  "fields": {
+    "name": "Person",
+    "slug": "person"
+  }
+},
+{
+  "model": "map.marker",
+  "pk": 1,
+  "fields": {
+    "marker": 1,
+    "name": "Universal Declaration of Human Rights",
+    "slug": "universal-declaration-human-rights",
+    "description": "Declaration",
+    "date": "1948-12-10",
+    "link": http://www.un.org/en/universal-declaration-human-rights/,
+    "lat": 40.71427,
+    "lon": -74.00597
+  }
+},
+{
+  "model": "map.marker",
+  "pk": 2,
+  "fields": {
+    "marker": 1,
+    "name": "European Convention for Human Rights",
+    "slug": "european-convention-human-rights",
+    "description": "ECHR",
+    "date": "1950-11-04",
+    "link": https://www.echr.coe.int/Documents/Convention_ENG.pdf,
+    "lat": 48.58392,
+    "lon": 7.74553
+  }
+},
+{
+  "model": "map.marker",
+  "pk": 3,
+  "fields": {
+    "marker": 1,
+    "name": "Magna Charta",
+    "slug": "magna-charta",
+    "description": "The first agreement between the sovereign and his vassals",
+    "date": "1238-01-01",
+    "link": https://en.wikipedia.org/wiki/Magna_Carta,
+    "lat": 51.50853,
+    "lon": -0.076132
+  }
+},
+{
+  "model": "map.marker",
+  "pk": 4,
+  "fields": {
+    "marker": 2,
+    "name": "1968 Red Square demonstration",
+    "slug": "1968-red-square-demonstration",
+    "description": "red square 1968 Czech Republic",
+    "date": "1968-08-25",
+    "link": https://en.wikipedia.org/wiki/1968_Red_Square_demonstration,
+    "lat": 37.620407,
+    "lon": 55.754093
+  }
+},
+{
+  "model": "map.marker",
+  "pk": 5,
+  "fields": {
+    "marker": 3,
+    "name": "Martin Luther King Jr.",
+    "slug": "martin-luter-king",
+    "description": "I have a dream. See more https://en.wikipedia.org/wiki/Martin_Luther_King_Jr.",
+    "date": "1948-12-10",
+    "link": https://en.wikipedia.org/wiki/Martin_Luther_King_Jr.,
+    "lat": 28.6448,
+    "lon": 77.216721
+  }
+}
+]

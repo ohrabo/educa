@@ -12,7 +12,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.7.0 virtualenv at C:\Users\HP User\virenv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-ui" level="application" />
   </component>
@@ -27,6 +27,8 @@
         <option value="$MODULE_DIR$/courses/templates/courses/manage" />
         <option value="$MODULE_DIR$/courses/templates/courses/manage/course" />
         <option value="$MODULE_DIR$/students/templates" />
+        <option value="$MODULE_DIR$/map/templates" />
+        <option value="$MODULE_DIR$/quiz/templates" />
       </list>
     </option>
   </component>

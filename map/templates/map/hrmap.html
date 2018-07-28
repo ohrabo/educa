@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<script type="text/json" src="{% static "map/markers.json" %}"></script>
+<script type="text/javascript" src="{% static "map/markers.js" %}"></script>
+<script type="text/javascript" src="{% static 'map/jquery-3.3.1.min.js' %}"></script>
+<script type='text/javascript' src={% static 'map/script.js'%}></script>
+{% block title %}
+Map
+{% endblock %}
+
+ {% block content %}
+    <h1><b>Explore the map before you decide to take the quiz</b></h1>
+    <script type='text/javascript' src={% static 'map/script.js'%}></script>
+
+   <div class="container">
+    <div class="row">
+      <div class="col-2-3" style="width: 66%;  float: left; margin-outside: 15px">
+          <div id="map" style="height: 400px"></div>
+            <script type='text/javascript'>
+              //Declare a map and coordinates
+              var map = L.map('map').setView([49.8397, 24.0297], 2);
+                //Add OpenStreetMap layer
+              L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  attribution: '&copy; <a rel="nofollow" href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              }).addTo(map);
+
+{#              var markers = {{markers|safe}};#}
+{#              console.log(markers[3][3]);#}
+
+
+            </script>
+      </div>
+<script language="JavaScript" type="text/javascript"></script>
+        <script type="text/javascript" src="{% static "map/markers.js" %}"></script>
+        <script>
+
+           function addMarker(){
+                var markers = {{markers|safe}};
+                //Loop through the markers array
+              for (var i=0; i<markers.length; i++) {
+                  var markerLocation = new L.LatLng(markers[i][0], markers[i][1]);
+                  var popupText = markers[i][2];
+                  var marker = new L.Marker(markerLocation);
+                  if(markers[i][3]== category.value){
+                      map.addLayer(marker);
+                  marker.bindPopup(popupText);
+                  }
+              }
+           }
+{#            function addMarker(markers) {#}
+{#                for (i = 0; i < markers.length; i++) {#}
+{#                    for (j = 0; j < markers[i].details.length; j++)#}
+{#                    var newMarker=[markers[i].details[j].lat, markers[i].details[j].lon]#}
+{#                    {#}
+{#                        if (markers[i].category === category.value) {#}
+{#                            L.marker(newMarker).addTo(map).bindPopup('description').openPopup();#}
+{#                        }#}
+{#                    }#}
+{#                }#}
+{#            }#}
+
+
+        </script>
+
+      <div class="options" style=" width: 30%;  float: right; margin-outside: 10px">
+          <form>
+            <label for="category">Choose a category from the list:</label>
+                <br>
+              <select id ="category">
+                  <option value="3">People</option>
+                  <option value="1">Documents</option>
+                  <option value="2">Events</option>
+            </select>
+                <input type="button" id="button" value="Check results"
+              onClick="addMarker()"/>
+              <input type="reset" value="Reset">
+
+            </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

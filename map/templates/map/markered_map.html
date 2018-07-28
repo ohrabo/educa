@@ -1,0 +1,53 @@
+<html>
+<head>
+   <title>Leaflet - Just a map</title>
+
+   <!-- Point at the CDN "hosted" CSS and javascript of leaflet -->
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+
+
+   <style>
+   #map { height: 480px; width: 80%; }
+   </style>
+
+
+
+</head>
+<body>
+   <div id="map" style="height: 500px"></div>
+<script language="javascript">
+
+         var map = new L.Map('map');
+
+      	 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+            maxZoom: 3
+         }).addTo(map);
+
+
+         var london = new L.LatLng(51.5056,-0.1213);
+         map.setView(london, 13);
+
+         // Define an array
+        var markers = {{markers_json}};
+
+         //Loop through the markers array
+         for (var i=0; i<markers.length; i++) {
+
+{#            var lon = markers[i][0];#}
+{#            var lat = markers[i][1];#}
+{#            var popupText = markers[i][2];#}
+
+{#             var markerLocation = new L.LatLng(markers[i]);#}
+             var marker = new L.Marker(markers[i]);
+             map.addLayer(marker);
+
+{#             marker.bindPopup(popupText);#}
+
+
+
+      }
+   </script>
+</body>
+</html>

@@ -42,6 +42,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'students',
     'embed_video',
+    'map',
+    'djgeojson',
+    'leaflet',
+    'django_google_maps',
+    'quiz'
 
 ]
 
@@ -132,3 +137,6 @@ LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+GOOGLE_MAPS_API_KEY='AIzaSyDYYyiqGd33J-SEZS4URf3hK4Qaz5It1Wg'
+FIXTURE_DIRS = (os.path.join(BASE_DIR, '/map/fixtures/'),)

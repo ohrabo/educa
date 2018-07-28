@@ -24,8 +24,10 @@ path('accounts/login/', auth_views.login, name='login'),
 path('accounts/logout/', auth_views.logout, name='logout'),
 path('admin/', admin.site.urls),
 path('course/', include('courses.urls')),
-path('', CourseListView.as_view(), name='course_list'),
+path('course_list', CourseListView.as_view(), name='course_list'),
 path('students/', include('students.urls')),
+path('', include('map.urls')),
+path ('q/', include('quiz.urls')),
 ]
 
 from django.conf import settings

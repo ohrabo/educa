@@ -1,0 +1,41 @@
+nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightsteelblue;
+    font-family: "Lato", sans-serif;
+}
+
+.mySlides {
+    display: none
+}
+
+h1 {
+    color: #222222;
+    text-align: center;
+}
+
+options {
+    width: 33.3333333333%;
+    float: right;
+}
+
+col-2-3 {
+    width: 66.6666666667%;
+    float: left;
+}
+
+.container:after, .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/**#map {width: 600px; height: 400px; }*!*/
